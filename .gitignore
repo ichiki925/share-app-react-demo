@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+
+# macOS
+.DS_Store
+
+# Docker volumes
+docker/mysql/data/
+
+# Laravel storage
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+bootstrap/cache/

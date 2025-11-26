@@ -1,0 +1,137 @@
+/* 全体の背景（グラデーション） */
+.backgroundWrapper {
+    background: linear-gradient(180deg, #794748 0%, #A67273 35%, #B88176 55%, #E8A87C 75%, #F5C990 90%, #F5C990 100%);
+    min-height: 100svh;
+    padding-top: 0;
+}
+
+/* コンテナ */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    gap: 0;
+}
+
+/* メインエリア */
+.mainArea {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow-x: hidden;
+}
+
+/* ヘッダー */
+.header {
+    padding: 1.5rem;
+    border-left: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+    flex-shrink: 0;
+}
+
+
+.title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: white;
+}
+
+/* エラーメッセージ */
+.errorMessage {
+    background-color: #7f1d1d;
+    color: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border-left: 1px solid #ffffff;
+}
+
+/* 成功メッセージ */
+.successMessage {
+    background-color: #065f46;
+    color: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border-left: 1px solid #ffffff;
+}
+
+/* タイムライン */
+.timeline {
+    padding: 1rem 1rem 0 1rem;
+    border-left: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+}
+
+.timeline>div {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+}
+
+/* ローディング */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #9ca3af;
+}
+
+/* 投稿がない場合 */
+.noPosts {
+    text-align: center;
+    padding: 3rem;
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .header {
+        border-left: none;
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .timeline {
+        border-left: none;
+        padding: 0.75rem;
+    }
+
+    .errorMessage,
+    .successMessage {
+        margin: 0.75rem;
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .loading,
+    .noPosts {
+        padding: 2rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0;
+    }
+
+    .header {
+        padding: 0.75rem;
+    }
+
+    .timeline {
+        padding: 0.5rem;
+    }
+}
