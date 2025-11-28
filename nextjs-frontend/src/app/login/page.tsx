@@ -87,7 +87,7 @@ const LoginForm: React.FC = () => {
 
             // demo1の場合のみリセット（ログイン後にUIDを取得）
             if (demoEmail === 'demo1@example.com' && user) {
-                await fetch('http://localhost/api/demo/reset', {
+                await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/demo/reset`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -255,13 +255,13 @@ const LoginForm: React.FC = () => {
                     <div style={{
                         marginTop: '1.5rem',
                         padding: '1rem',
-                        background: 'linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%)',
+                        background: 'linear-gradient(135deg, #f5f0e8 0%, #e8dfd2 100%)',
                         borderRadius: '0.75rem',
-                        border: '1px solid rgba(20, 184, 166, 0.3)'
+                        border: '1px solid rgba(201, 184, 150, 0.4)'
                     }}>
                         <p style={{
                             fontSize: '0.875rem',
-                            color: '#065f46',
+                            color: '#5d5442',
                             marginBottom: '0.75rem',
                             textAlign: 'center',
                             fontWeight: '600'
@@ -278,7 +278,7 @@ const LoginForm: React.FC = () => {
                                 onClick={() => handleDemoLogin('demo1@example.com', 'demo-password-123', 'デモユーザー1')}
                                 style={{
                                     width: '100%',
-                                    background: 'linear-gradient(135deg, #14b8a6 0%, #0d9488 100%)',
+                                    background: 'linear-gradient(135deg, #d4c5a9 0%, #c9b896 100%)',
                                     color: '#ffffff',
                                     padding: '0.75rem',
                                     border: 'none',
@@ -286,7 +286,7 @@ const LoginForm: React.FC = () => {
                                     fontSize: '0.875rem',
                                     fontWeight: '600',
                                     cursor: 'pointer',
-                                    boxShadow: '0 2px 8px rgba(20, 184, 166, 0.3)'
+                                    boxShadow: '0 2px 8px rgba(181, 166, 136, 0.4)'
                                 }}
                             >
                                 デモユーザー1でログイン
@@ -295,7 +295,7 @@ const LoginForm: React.FC = () => {
                         </div>
                         <p style={{
                             fontSize: '0.75rem',
-                            color: '#065f46',
+                            color: '#5d5442',
                             marginTop: '0.75rem',
                             textAlign: 'center'
                         }}>
