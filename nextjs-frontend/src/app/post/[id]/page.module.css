@@ -226,11 +226,13 @@
     .container {
         flex-direction: column;
         height: 100vh;
+        overflow: hidden;
     }
 
     .main {
         flex: 1;
         min-height: 0;
+        overflow: hidden;
     }
 
     .mainHeader {
@@ -315,6 +317,10 @@
 }
 
 @media (max-width: 480px) {
+    .container {
+        overflow: hidden;
+    }
+
     .commentsTitle {
         padding: 0.4rem;
         font-size: 0.95rem;

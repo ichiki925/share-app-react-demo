@@ -92,11 +92,21 @@
     .container {
         flex-direction: column;
         height: 100vh;
+        overflow: hidden;
+    }
+
+    .mainArea {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
     }
 
     .header {
         border-left: none;
         padding: 1rem;
+        flex-shrink: 0;
     }
 
     .title {
@@ -104,6 +114,8 @@
     }
 
     .timeline {
+        flex: 1;
+        overflow-y: auto;
         border-left: none;
         padding: 0.75rem;
     }
@@ -125,6 +137,7 @@
 @media (max-width: 480px) {
     .container {
         padding: 0;
+        overflow: hidden;
     }
 
     .header {

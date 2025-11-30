@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useFirebaseAuth } from '@/hooks/useFirebaseAuth'
 import api from '@/lib/api'
 import { CreatePostRequest } from '@/lib/types'
+import Toast from '@/components/Toast'
 
 interface SidebarProps {
     onPostCreated?: () => void
@@ -17,7 +18,10 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
     const [newPost, setNewPost] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [error, setError] = useState('')
-    const [successMessage, setSuccessMessage] = useState('')
+    const [toast, setToast] = useState<{
+        message: string;
+        type: 'success' | 'error';
+    } | null>(null)
 
     const MAX_LENGTH = 120
 
@@ -54,7 +58,6 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
         try {
             setIsSubmitting(true)
             setError('')
-            setSuccessMessage('')
 
             const token = await getAuthToken()
             if (!token) {
@@ -67,17 +70,12 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
 
             // 成功処理
             setNewPost('')
-            setSuccessMessage('投稿しました！')
+            setToast({ message: '投稿しました！', type: 'success' })
 
             // 親コンポーネントに投稿作成を通知
             if (onPostCreated) {
                 onPostCreated()
             }
-
-            // 成功メッセージを3秒後に消去
-            setTimeout(() => {
-                setSuccessMessage('')
-            }, 3000)
 
         } catch (err: any) {
             console.error('投稿エラー:', err)
@@ -104,6 +102,15 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
 
     return (
         <div className="sidebar">
+            {/* Toast表示 */}
+            {toast && (
+                <Toast
+                    message={toast.message}
+                    type={toast.type}
+                    onClose={() => setToast(null)}
+                />
+            )}
+
             {/* ヘッダー */}
             <div className="sidebar-header">
                 <img src="/images/logo.png" alt="SHARE" className="logo" />
@@ -160,12 +167,6 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
                     </div>
                 )}
 
-                {/* 成功メッセージ */}
-                {successMessage && (
-                    <div className="success-message">
-                        {successMessage}
-                    </div>
-                )}
             </div>
 
             <style jsx>{`
@@ -319,23 +320,13 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
                     align-self: stretch;
                 }
 
-                .success-message {
-                    background-color: #065f46;
-                    color: white;
-                    padding: 0.75rem;
-                    margin-top: 1rem;
-                    border-radius: 0.5rem;
-                    font-size: 0.875rem;
-                    align-self: stretch;
-                }
-
                 /* レスポンシブ対応 */
                 @media (max-width: 768px) {
                     .sidebar {
                         width: 100%;
                         padding: 1rem;
                         height: auto;
-                        max-height: 60vh;
+                        max-height: 75vh;
                     }
 
                     .sidebar-header {
