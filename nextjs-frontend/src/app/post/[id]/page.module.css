@@ -225,42 +225,34 @@
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        height: 100vh;
-        overflow: hidden;
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
     }
 
     .main {
         flex: 1;
         min-height: 0;
-        overflow: hidden;
-    }
-
-    .mainHeader {
-        border-left: none;
-        padding: 1rem;
-    }
-
-    .mainHeader h1 {
-        font-size: 1.25rem;
+        overflow: visible;
     }
 
     .detailContent {
         flex: 1;
         min-height: 0;
+        overflow: visible;
     }
 
-    .originalPost {
-        border-left: none;
-    }
-
-    .commentsTitle {
-        border-left: none;
-        padding: 0.5rem;
-        font-size: 1rem;
+    .commentsSection {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: column;
+        min-height: auto;
     }
 
     .commentsList {
-        border-left: none;
+        flex: none;
+        overflow-y: visible;
+        min-height: auto;
     }
 
     .commentItem {

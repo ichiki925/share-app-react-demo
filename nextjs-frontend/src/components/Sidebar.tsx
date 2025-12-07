@@ -326,7 +326,8 @@ export default function Sidebar({ onPostCreated }: SidebarProps) {
                         width: 100%;
                         padding: 1rem;
                         height: auto;
-                        max-height: 75vh;
+                        max-height: none;
+                        overflow-y: visible;
                     }
 
                     .sidebar-header {

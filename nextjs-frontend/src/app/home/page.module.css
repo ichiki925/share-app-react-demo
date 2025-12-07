@@ -91,8 +91,9 @@
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
-        height: 100vh;
-        overflow: hidden;
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
     }
 
     .mainArea {
@@ -100,22 +101,22 @@
         min-height: 0;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow: visible;
     }
 
-    .header {
-        border-left: none;
-        padding: 1rem;
-        flex-shrink: 0;
-    }
-
-    .title {
-        font-size: 1.25rem;
-    }
+        .header {
+            border-left: none;
+            padding: 1rem;
+            flex-shrink: 0;
+        }
+    
+        .title {
+            font-size: 1.25rem;
+        }
 
     .timeline {
-        flex: 1;
-        overflow-y: auto;
+        flex: none;
+        overflow-y: visible;
         border-left: none;
         padding: 0.75rem;
     }
@@ -137,7 +138,7 @@
 @media (max-width: 480px) {
     .container {
         padding: 0;
-        overflow: hidden;
+        overflow: visible;
     }
 
     .header {
