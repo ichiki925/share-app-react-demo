@@ -236,10 +236,24 @@
         overflow: visible;
     }
 
+    .mainHeader {
+        border-left: none;
+        padding: 1rem;
+        flex-shrink: 0;
+    }
+
+    .mainHeader h1 {
+        font-size: 1.25rem;
+    }
+
     .detailContent {
         flex: 1;
         min-height: 0;
         overflow: visible;
+    }
+
+    .originalPost {
+        border-left: none;
     }
 
     .commentsSection {
@@ -249,10 +263,19 @@
         min-height: auto;
     }
 
+    .commentsTitle {
+        border-left: none;
+        /* ✓ 追加 */
+        border-bottom: 1px solid #ffffff;
+        padding: 0.7rem;
+        font-size: 1rem;
+    }
+
     .commentsList {
         flex: none;
         overflow-y: visible;
         min-height: auto;
+        border-left: none;
     }
 
     .commentItem {
@@ -310,15 +333,17 @@
 
 @media (max-width: 480px) {
     .container {
-        overflow: hidden;
+        overflow: visible;
     }
 
     .commentsTitle {
+        border-left: none;
         padding: 0.4rem;
         font-size: 0.95rem;
     }
 
     .commentItem {
+        border-left: none;
         padding: 0.5rem;
     }
 
